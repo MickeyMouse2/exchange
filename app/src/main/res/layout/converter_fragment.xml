@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/topBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/main"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:text="Currency converter"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="MY BALANCE"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+        <TextView
+            android:id="@+id/balanceEUR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="100.00 EUR"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textBalance"
+            app:layout_constraintTop_toBottomOf="@+id/textBalance" />
+
+
+        <TextView
+            android:id="@+id/balanceUSD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="0.00 USD"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/balanceEUR"
+            app:layout_constraintTop_toBottomOf="@+id/textBalance" />
+
+
+        <TextView
+            android:id="@+id/balanceBGN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="0.00 BGN"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/balanceUSD"
+            app:layout_constraintTop_toBottomOf="@+id/textBalance" />
+
+        <TextView
+            android:id="@+id/textCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/currency_exchange"
+            app:layout_constraintStart_toStartOf="@+id/textBalance"
+            app:layout_constraintTop_toBottomOf="@+id/balanceEUR" />
+
+
+        <ImageView
+            android:id="@+id/imageArrowUp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_arrow_red"
+            android:padding="6dp"
+            android:rotation="90"
+            android:src="@drawable/ic_arrow"
+            app:layout_constraintStart_toStartOf="@+id/textBalance"
+            app:layout_constraintTop_toBottomOf="@+id/textCurrency" />
+
+        <TextView
+            android:id="@+id/textSell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/sell"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageArrowUp"
+            app:layout_constraintStart_toEndOf="@+id/imageArrowUp"
+            app:layout_constraintTop_toTopOf="@+id/imageArrowUp" />
+
+        <EditText
+            android:id="@+id/editSell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="0.00"
+            android:textColor="@color/black"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/imageArrowUp"
+            app:layout_constraintEnd_toStartOf="@+id/menu"
+            app:layout_constraintTop_toTopOf="@+id/imageArrowUp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:boxBackgroundColor="@color/white"
+            app:hintEnabled="false"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imageArrowUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageArrowUp">
+
+            <AutoCompleteTextView
+                android:id="@+id/course"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:layout_weight="1"
+                android:text="@string/usd"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/split"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/line"
+            app:layout_constraintStart_toStartOf="@+id/textSell"
+            app:layout_constraintTop_toBottomOf="@+id/menu" />
+
+        <ImageView
+            android:id="@+id/imageArrowDown"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/background_arrow_green"
+            android:padding="6dp"
+            android:rotation="-90"
+            android:src="@drawable/ic_arrow"
+            app:layout_constraintStart_toStartOf="@+id/textBalance"
+            app:layout_constraintTop_toTopOf="@+id/spinnerReceive"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerReceive"/>
+
+        <TextView
+            android:id="@+id/textReceive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/receive"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerReceive"
+            app:layout_constraintStart_toEndOf="@+id/imageArrowDown"
+            app:layout_constraintTop_toTopOf="@+id/spinnerReceive" />
+
+        <TextView
+            android:id="@+id/textReceiveConvert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="0.00"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerReceive"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerReceive"
+            app:layout_constraintTop_toTopOf="@+id/spinnerReceive" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/spinnerReceive"
+            android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:boxBackgroundColor="@color/white"
+            app:hintEnabled="false"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_marginTop="1dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/split">
+
+            <AutoCompleteTextView
+                android:id="@+id/courseReceive"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:layout_weight="1"
+                android:text="@string/usd"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/line"
+            app:layout_constraintStart_toStartOf="@+id/textReceive"
+            app:layout_constraintTop_toBottomOf="@+id/imageArrowDown" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background_btn"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/main"
+            app:cornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
